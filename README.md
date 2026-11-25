@@ -65,6 +65,10 @@ On first launch, use **Sign Up** to create an account. The app signs you in and 
 
 Run automated checks with `pytest`. Train again any time with `python -m src.models.train`.
 
+## Deploy
+
+For a hosted app that keeps student histories, use the included [Render deployment guide](DEPLOYMENT.md) and `render.yaml`. This configuration mounts a persistent disk for SQLite. Render currently lists the Starter web service at $7/month and the 1 GB disk at $0.25/month; confirm current pricing before provisioning. Streamlit Community Cloud can host a portfolio preview, but local database persistence is not guaranteed there.
+
 ## Project structure
 
 ```text

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: learnlens-ai
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
+    healthCheckPath: /_stcore/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: LEARNLENS_DB_PATH
+        value: /var/data/learnlens.db
+      - key: STREAMLIT_BROWSER_GATHER_USAGE_STATS
+        value: "false"
+    disk:
+      name: learnlens-data
+      mountPath: /var/data
+      sizeGB: 1
