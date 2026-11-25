@@ -61,13 +61,11 @@ streamlit run app.py
 
 The SQLite database and model are created in the project folder. The app initializes the database on first launch. The question-bank command exports `datasets/questions.csv` from the reviewed source list. Set `LEARNLENS_DB_PATH` or `LEARNLENS_MODEL_DIR` to use alternate storage locations. If the model is absent, the ML Insights page explains how to train it; quiz and rule-based analytics remain available.
 
+The runtime dependencies are pinned to the versions used to train and load the included model. On Streamlit Community Cloud, SQLite initialization can create a local database for the app, but Cloud does not guarantee persistence of local files. Use it as a portfolio preview only if losing registered accounts and quiz history after a restart is acceptable; durable learning history requires an external persistent database.
+
 On first launch, use **Sign Up** to create an account. The app signs you in and opens your personal dashboard. Later, log in with either your username or email address. Use **Log out** in the workspace sidebar to end the session. New accounts have no imported/demo attempts. Existing pre-authentication demo profiles remain in the database for backup/compatibility, but they are not selectable or exposed to signed-in users. Registration and login are local account features intended for a local portfolio deployment.
 
 Run automated checks with `pytest`. Train again any time with `python -m src.models.train`.
-
-## Deploy
-
-For a hosted app that keeps student histories, use the included [Render deployment guide](DEPLOYMENT.md) and `render.yaml`. This configuration mounts a persistent disk for SQLite. Render currently lists the Starter web service at $7/month and the 1 GB disk at $0.25/month; confirm current pricing before provisioning. Streamlit Community Cloud can host a portfolio preview, but local database persistence is not guaranteed there.
 
 ## Project structure
 

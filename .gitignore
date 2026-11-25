@@ -3,9 +3,23 @@ __pycache__/
 .venv/
 .pytest_cache/
 *.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
 backups/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
 .streamlit/secrets.toml
+.streamlit/secrets*.toml
+.streamlit/cache/
 .pytest-tmp/
 pytest-cache-files-*/
 tests/tmp*/
+.mypy_cache/
+.ruff_cache/
+.cache/
 
